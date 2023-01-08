@@ -21,17 +21,6 @@ def get_options(args):
 def main():
     options = get_options()
 
-    ngx_cycle = NgxCycle.instance().init_cycle(options.conf_file)
-
-    # Main loop
-        # Event module
-        # TCP Connection
-        # Follow conf file
-        # HTTP framework
-            # HTTP module
-                # HTTP filter module
-            # HTTP other module
-
 
 if __name__ == "__main__":
     main()
