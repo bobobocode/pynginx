@@ -131,3 +131,4 @@ dmypy.json
 *.sw[po]
 *-venv/
 test-environment
+*.md.html
