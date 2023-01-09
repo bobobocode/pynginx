@@ -8,7 +8,8 @@ tokens = ['NUMBER',
           'LBRACE',
           'RBRACE',
           'SEMICOLON',
-          'ID'
+          'ID',
+          'VALUE'
           ]
 
 reserved = {'events' : 'EVENTS',
@@ -30,6 +31,12 @@ tokens = tokens + list(reserved.values())
 def t_ID(t):
     r'[a-zA-Z_][a-zA-Z_0-9]*'
     t.type = reserved.get(t.value, 'ID')
+    return t
+
+
+def t_VALUE(t):
+    r'[a-zA-Z_/\.][a-zA-Z_0-9/\.]*'
+    t.value = str(t.value)
     return t
 
 

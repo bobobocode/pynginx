@@ -34,5 +34,4 @@ def test_tokens():
         tok = parser.token()
         if not tok:
             break
-        if 'ID' == tok.type:
-            print(tok.value)
+        print(tok)
