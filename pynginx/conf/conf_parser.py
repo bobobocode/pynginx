@@ -9,7 +9,8 @@ tokens = ['NUMBER',
           'RBRACE',
           'SEMICOLON',
           'ID',
-          'VALUE'
+          'VALUE',
+          'BLOCK'
           ]
 
 reserved = {'events' : 'EVENTS',
@@ -58,5 +59,29 @@ def t_error(t):
     print("Illegal character '%s'" % t.value[0])
     t.lexer.skip(1)
 
+states = (
+  ('block','exclusive'),
+)
 
-parser = lex.lex()
+def t_block(t):
+    r'\{'
+    t.lexer.code_start = t.lexer.lexpos
+    t.lexer.level = 1
+    t.lexer.begin('block')
+
+def t_block_lbrace(t):
+    r'\{'
+    t.lexer.level +=1
+
+def t_block_rbrace(t):
+    r'\}'
+    t.lexer.level -=1
+
+    if t.lexer.level == 0:
+         t.value = t.lexer.lexdata[t.lexer.code_start:t.lexer.lexpos+1]
+         t.type = "BLOCK"
+         t.lexer.lineno += t.value.count('\n')
+         t.lexer.begin('INITIAL')
+         return t
+
+token_parser = lex.lex()

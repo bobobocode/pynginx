@@ -2,10 +2,10 @@
 
 # BoBoBo
 
-from pynginx.conf.conf_parser import parser
+from pynginx.conf.conf_parser import token_parser
 
 
-def test_tokens():
+def test_token_parser():
     conf_str = """
         events {}
 
@@ -29,9 +29,9 @@ def test_tokens():
             }
         }
     """
-    parser.input(conf_str)
+    token_parser.input(conf_str)
     while True:
-        tok = parser.token()
+        tok = token_parser.token()
         if not tok:
             break
         print(tok)
