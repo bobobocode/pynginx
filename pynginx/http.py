@@ -2,6 +2,10 @@
 
 # BoBoBo
 
+"""
+HTTP framework
+"""
+
 import os
 import socket
 import select
