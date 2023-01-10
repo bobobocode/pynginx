@@ -82,7 +82,7 @@ def t_block_rbrace(t):
     t.lexer.level -= 1
 
     if t.lexer.level == 0:
-         t.value = t.lexer.lexdata[t.lexer.code_start:t.lexer.lexpos + 1]
+         t.value = t.lexer.lexdata[t.lexer.code_start : t.lexer.lexpos - 1]
          t.type = "BLOCK"
          t.lexer.lineno += t.value.count('\n')
          t.lexer.begin('INITIAL')

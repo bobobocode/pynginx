@@ -1,0 +1,53 @@
+Run Base Current Dir: /Users/bobobo/code/pynginx/pynginx/tests
+Set environment
+Requirement already satisfied: pytest in ./test-venv/lib/python3.10/site-packages (7.2.0)
+Requirement already satisfied: packaging in ./test-venv/lib/python3.10/site-packages (from pytest) (23.0)
+Requirement already satisfied: pluggy<2.0,>=0.12 in ./test-venv/lib/python3.10/site-packages (from pytest) (1.0.0)
+Requirement already satisfied: tomli>=1.0.0 in ./test-venv/lib/python3.10/site-packages (from pytest) (2.0.1)
+Requirement already satisfied: iniconfig in ./test-venv/lib/python3.10/site-packages (from pytest) (2.0.0)
+Requirement already satisfied: exceptiongroup>=1.0.0rc8 in ./test-venv/lib/python3.10/site-packages (from pytest) (1.1.0)
+Requirement already satisfied: attrs>=19.2.0 in ./test-venv/lib/python3.10/site-packages (from pytest) (22.2.0)
+Starting to run pytest: test_conf_parser.py
+=================================== test session starts ====================================
+platform darwin -- Python 3.10.6, pytest-7.2.0, pluggy-1.0.0
+rootdir: /Users/bobobo/code/pynginx/pynginx/tests
+collected 1 item
+
+test_conf_parser.py LexToken(EVENTS,'events',2,9)
+LexToken(BLOCK,'',2,17)
+LexToken(ID,'master_process',4,28)
+LexToken(ID,'off',4,43)
+LexToken(SEMICOLON,';',4,46)
+LexToken(ERROR_LOG,'error_log',6,57)
+LexToken(VALUE,'/usr/local/nginx/logs/debug.log',6,67)
+LexToken(ID,'debug',6,99)
+LexToken(SEMICOLON,';',6,104)
+LexToken(HTTP,'http',8,115)
+LexToken(SERVER,'server',9,134)
+LexToken(LISTEN,'listen',10,159)
+LexToken(NUMBER,8080,10,172)
+LexToken(SEMICOLON,';',10,176)
+LexToken(ID,'server_name',11,194)
+LexToken(ID,'localhost',11,207)
+LexToken(SEMICOLON,';',11,216)
+LexToken(WITH_CONTEXT,'with_context',12,234)
+LexToken(VALUE,'/usr/local/app/engine_func',12,247)
+LexToken(ID,'context',12,274)
+LexToken(VALUE,'/usr/local/app/engine_func/conf.yaml',12,282)
+LexToken(SEMICOLON,';',12,318)
+LexToken(LOCATION,'location',14,337)
+LexToken(VALUE,'/func',14,346)
+LexToken(ID,'engine_func',15,374)
+LexToken(VALUE,'/usr/local/app/engine_func',15,387)
+LexToken(SEMICOLON,';',15,413)
+LexToken(LOCATION,'location',18,450)
+LexToken(VALUE,'/app',18,459)
+LexToken(ID,'engine_app',19,486)
+LexToken(VALUE,'/usr/local/app/engine_app',19,497)
+LexToken(ID,'helloworld',19,523)
+LexToken(ID,'app',19,534)
+LexToken(SEMICOLON,';',19,537)
+LexToken(BLOCK,'\n            server {\n                listen       8080;\n                server_name  localhost;\n                with_context /usr/local/app/engine_func context /usr/local/app/engine_func/conf.yaml;\n\n                location /func {\n                    engine_func  /usr/local/app/engine_func;\n                }\n\n                location /app {\n                    engine_app /usr/local/app/engine_app helloworld app;\n                }\n            }\n        ',22,579)
+.
+
+==================================== 1 passed in 0.01s =====================================
