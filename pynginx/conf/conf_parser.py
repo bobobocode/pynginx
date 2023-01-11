@@ -60,9 +60,7 @@ def t_error(t):
     t.lexer.skip(1)
 
 
-states = (
-  ('block', 'inclusive'),
-)
+states = (('block', 'inclusive'),)
 
 
 def t_block(t):
@@ -72,21 +70,23 @@ def t_block(t):
     t.lexer.begin('block')
 
 
-def t_block_lbrace(t):
+def t_block_LBRACE(t):
     r'\{'
     t.lexer.level += 1
+    return t
 
 
-def t_block_rbrace(t):
+def t_block_RBRACE(t):
     r'\}'
     t.lexer.level -= 1
 
     if t.lexer.level == 0:
-         t.value = t.lexer.lexdata[t.lexer.code_start : t.lexer.lexpos - 1]
-         t.type = "BLOCK"
-         t.lexer.lineno += t.value.count('\n')
-         t.lexer.begin('INITIAL')
-         return t
+        t.value = t.lexer.lexdata[t.lexer.code_start : t.lexer.lexpos - 1]
+        t.type = "BLOCK"
+        t.lexer.lineno += t.value.count('\n')
+        t.lexer.begin('INITIAL')
+
+    return t
 
 
 token_parser = lex.lex()
