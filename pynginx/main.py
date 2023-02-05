@@ -3,9 +3,9 @@
 # BoBoBo
 
 from argparse import ArgumentParser
+from . import modules
 from . import cycle
 from .server import server
-from . import modules
 
 
 def pyngx_get_options(args=None):
@@ -35,5 +35,5 @@ def main():
 
     pyngx_cycle = cycle.pyngx_init_cycle(init_cycle)
 
-    # Let`s start from an available webserver first
+    # Let`s start from an available web server first
     server.bootstrap(pyngx_cycle)

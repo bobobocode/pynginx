@@ -15,10 +15,9 @@ def with_context(context_module_name, context_conf_file):
     print("Build context by %s with %s" %
           (context_module_name, context_conf_file))
 
-    if (ctx is None):
-        ctx_m = importlib.import_module(context_module_name)
-        func = getattr(ctx_m, "build_context")
-        ctx = func(context_conf_file)
+    ctx_m = importlib.import_module(context_module_name)
+    func = getattr(ctx_m, "build_context")
+    ctx = func(context_conf_file)
 
     if 'logger' in ctx:
         logger = ctx['logger']
@@ -28,8 +27,7 @@ def with_context(context_module_name, context_conf_file):
     return ctx
 
 
-def route(r):
-    global logger
+def route(r, ctx, logger):
     response = {}
     try:
         m, func_name = trans_uri_to_module(r['uri'])
@@ -38,7 +36,6 @@ def route(r):
         func = getattr(func_m, func_name)
         parameters = parse_environ_parameters('GET', r)
 
-        global ctx
         res = func(ctx, **parameters)
         logger.debug('Request: [%s] Result: [%s]' % (str(r), str(res)))
         response['content'] = res

@@ -1,6 +1,6 @@
 """HelloWorld WSGI app."""
 
-from engine_py.app import engine_app
+from pynginx.engine.engine_app import engine_app
 
 
 def wsgi_app(environ, start_response):

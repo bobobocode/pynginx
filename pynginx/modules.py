@@ -5,7 +5,7 @@
 from collections import namedtuple
 import importlib
 
-PYNGX_HTTP_MODULE = 0x50545448  # "HTTP"
+PYNGX_HTTP_MODULE = 0x50545448
 
 PYNGX_CONF_TAKE1 = 0x00000002
 PYNGX_CONF_TAKE2 = 0x00000004

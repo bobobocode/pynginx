@@ -58,4 +58,4 @@ PyNginx的代码尽量与Nginx的代码形成映射，
 * <https://github.com/bobobocode>  
 * <bobobomail@yeah.net>
 
-欢迎交流，共同促进对Nginx源代码的学习: )
+欢迎交流 : )
