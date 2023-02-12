@@ -17,7 +17,7 @@ PYNGX_HTTP_LOC_CONF = 0x08000000
 
 
 pyngx_module_t = namedtuple('pyngx_module_t',
-                            ['name', 'commands', 'type', 'init_module'])
+                            ['name', 'ctx', 'commands', 'type', 'init_module'])
 
 pyngx_command_t = namedtuple('pyngx_command_t',
                              ['name', 'type', 'set', 'conf'])
